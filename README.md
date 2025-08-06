@@ -1,9 +1,10 @@
-# Tic Tac Toe Player
+# 🧠 Tic-Tac-Toe AI (Minimax)
 
-This module implements an AI player for the game of Tic Tac Toe using the Minimax algorithm.
-It includes functions to simulate gameplay, determine optimal moves, and evaluate game states.
+A Python implementation of an unbeatable Tic-Tac-Toe AI using the Minimax algorithm. The program evaluates optimal moves for each player and guarantees the best outcome in every game state.
 
 ## ✨ Features
+
+Implements a recursive Minimax algorithm for solving Tic-Tac-Toe. Includes game logic, utility evaluation, and optimal move selection for both players.
 
 ## 📦 Installation
 
