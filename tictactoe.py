@@ -1,5 +1,8 @@
 """
 Tic Tac Toe Player
+
+This module implements an AI player for the game of Tic Tac Toe using the Minimax algorithm.
+It includes functions to simulate gameplay, determine optimal moves, and evaluate game states.
 """
 
 import math
@@ -37,11 +40,11 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    actions = []
+    actions = set()
     for i in range(3):
         for j in range(3):
             if board[i][j] == EMPTY:
-                actions.append((i,j))
+                actions.add((i,j))
     return actions
 
 
@@ -107,7 +110,11 @@ def utility(board):
 
 def minimax(board):
     """
-    Returns the optimal action for the current player on the board.
+    Determines the optimal move for the current player using the Minimax algorithm.
+
+    This function recursively evaluates all possible future game states resulting from
+    available actions, assuming both players play optimally. It selects the move that 
+    maximizes the current player's chances of winning (or minimizes loss in worst-case).
     """
     if terminal(board):
         return None
@@ -135,6 +142,12 @@ def minimax(board):
         return best_action
         
 def min_value(board):
+    """
+    Calculates the minimum utility value that the minimizing player (O) can force 
+    from the current board state, assuming the maximizing player (X) plays optimally.
+
+    This function is called recursively by the Minimax algorithm.
+    """
     if terminal(board):
         return utility(board)
     v = math.inf
@@ -143,6 +156,12 @@ def min_value(board):
     return v
 
 def max_value(board):
+    """
+    Calculates the maximum utility value that the maximizing player (X) can achieve 
+    from the current board state, assuming the minimizing player (O) plays optimally.
+
+    This function is called recursively by the Minimax algorithm.
+    """
     if terminal(board):
         return utility(board)
     v = -math.inf
